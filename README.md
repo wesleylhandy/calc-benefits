@@ -35,7 +35,7 @@ This interface allows you to skip all questions by entering the values directly 
 calc-benefits -h
 ```
 
-**Format:** _do not use quotation marks and no spaces allowed in campaign name_
+**Format:** _do not include commas to separate thousands and no $ or % signs_
 ```
 calc-benefits -s <integer: salary> -y <integer: years_to_retirment> -m <float: matching_percentage> -r <float: annual_401k_return_rate>
 ```

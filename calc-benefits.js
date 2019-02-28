@@ -51,9 +51,8 @@ getMissingValues()
 function calculateTotalValue(salary, match, years, rate){
     const matchAmount = salary * (match / 100);
     const yearsToDouble = 72 / rate;
-    const multiplier = years / yearsToDouble;
-
-    return matchAmount * multiplier
+    const exponent = years / yearsToDouble;
+    return matchAmount * Math.pow(2, exponent);
 }
 
 function returnDollars(value) {
