@@ -14,7 +14,7 @@ program
     .option('-s, --salary <salary>', `annual salary - digits only (ie. 45000)`, parseInt)
     .option('-y, --years <years>', `Years Left Until Retirement - whole years only (ie. 25)`, parseInt)
     .option('-m, --match <match>', `Percentage of income usually matched - digit only (ie. 4)`, parseFloat)
-    .option('-r, --rate <rate>', `Estimated Annual Return Rate of 401k - numbers only (ie. 6.5)`, parseFloat)
+    .option('-r, --rate <rate>', `Estimated Annual Return Rate of Retirement Fund - numbers only (ie. 6.5)`, parseFloat)
     .parse(process.argv)
 
 getMissingValues()
