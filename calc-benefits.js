@@ -27,7 +27,7 @@ getMissingValues()
             totalBenefits += yearlyBenefit;
           }
         console.log('')
-        console.info(info(`With an annual salary of ${returnDollars(salary)}, your employer match would have been ${returnDollars(salary * (match / 100))} per year.`));
+        console.info(info(`With an annual salary of ${returnDollars(salary)}, with ${match}% matched, your employer would have contributed ${returnDollars(salary * (match / 100))} per year to your retirement.`));
         console.log('');
         console.info(info(`With ${program.years} years remaining until retirement, and given a annual return of ${rate}% for your retirment fund, you would have earned an additional ${returnDollars(totalBenefits)} in retirement savings.`))
         console.log('')
