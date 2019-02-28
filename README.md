@@ -1,6 +1,6 @@
 # Lost Benefits Estimator CLI
 
-This is a command-line interface for the sole purpose of estimating total lost retirement benefits if your employer quits offering matching 401k
+This is a command-line interface for the sole purpose of estimating, [via the rule of 72](https://en.wikipedia.org/wiki/Rule_of_72), total lost retirement benefits if your employer quits offering matching retirement fund contributions
 
 ## Installation Instructions
 
