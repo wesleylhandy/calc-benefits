@@ -1,0 +1,27 @@
+{
+  "name": "lost-benefits-calculator",
+  "version": "1.0.0",
+  "description": "CLI utility to calculate potential lost retirement benefits due to cessation of matching contributions",
+  "main": "calc-benefits.js",
+  "bin": {
+    "calc-benefits": "./calc-benefits.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CLI",
+    "CBN",
+    "401k",
+    "retirement",
+    "Rule-of-72",
+    "estimator"
+  ],
+  "author": "Wesley L. Handy",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.2"
+  }
+}
