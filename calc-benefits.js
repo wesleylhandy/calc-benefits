@@ -6,6 +6,7 @@ const inquirer = require('inquirer')
 
 const error = chalk.bold.redBright
 const info = chalk.bold.keyword('orange')
+const total = chalk.bold.underline.redBright
 
 //initialize parsing of command line arguments
 program
@@ -27,9 +28,13 @@ getMissingValues()
             totalBenefits += yearlyBenefit;
           }
         console.log('')
+        console.log('')
         console.info(info(`With an annual salary of ${returnDollars(salary)}, with ${match}% matched, your employer would have contributed ${returnDollars(salary * (match / 100))} per year to your retirement.`));
         console.log('');
-        console.info(info(`With ${program.years} years remaining until retirement, and given a annual return of ${rate}% for your retirment fund, you would have earned an additional ${returnDollars(totalBenefits)} in retirement savings.`))
+        console.info(info(`With ${program.years} years remaining until retirement, and given a annual return of ${rate}% for your retirment fund...`)) 
+        console.log('');
+        console.info(info(`...You would have earned an additional `) + total(returnDollars(totalBenefits)) + info(` in retirement savings.`))
+        console.log('')
         console.log('')
     })
     .catch(err => {
