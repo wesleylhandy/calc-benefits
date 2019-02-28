@@ -9,15 +9,10 @@ Requires:
 node v8.5+
 ```
 
-Currently, this CLI needs testing on a Windows-based PC.
-
-For all others:
-
-1. Fork this Repo and Clone into your development environment.
-2. `cd calc-benefits` from the folder where you cloned the repo.
-3. From the Command-line, run `npm install` to install all the dependencies into this folder
-4. Run `npm install -g` to be able to call this function anywhere
-5. Run `npm link` to connect the global installation to this directory.
+Install:
+```
+npm install -g lost-benefits-calculator
+```
 
 ## Usage Instructions
 
