@@ -18,20 +18,22 @@ program
     .option('-r, --rate <rate>', `Estimated Annual Return Rate of Retirement Fund - numbers only (ie. 6.5)`, parseFloat)
     .parse(process.argv)
 
-getMissingValues()
-    .then((nothingMissing)=>{
-        const {salary, match, rate} = program;
-        let yearCount = program.years;
-        let totalBenefits = 0.0;
-        for (yearCount; yearCount > 0; yearCount--) {
+getMissingValues(program)
+    .then(({years, salary, match, rate})=>{
+         let totalBenefits = 0.0;
+        for (let yearCount = years; yearCount > 0; yearCount--) {
             const yearlyBenefit = calculateTotalValue(salary, match, yearCount, rate)
             totalBenefits += yearlyBenefit;
-          }
+        }
+        console.clear()
+        console.log('')
+        console.log('')
+        console.info(total(`!!! ${returnDollars(totalBenefits)} !!!`));
         console.log('')
         console.log('')
         console.info(info(`With an annual salary of ${returnDollars(salary)}, with ${match}% matched, your employer would have contributed ${returnDollars(salary * (match / 100))} per year to your retirement.`));
         console.log('');
-        console.info(info(`With ${program.years} years remaining until retirement, and given a annual return of ${rate}% for your retirment fund...`)) 
+        console.info(info(`With ${years} years remaining until retirement, and given a annual return of ${rate}% for your retirment fund...`)) 
         console.log('');
         console.info(info(`...You would have earned an additional `) + total(returnDollars(totalBenefits)) + info(` in retirement savings.`))
         console.log('')
@@ -64,11 +66,10 @@ function returnDollars(value) {
     return value.toLocaleString(undefined, {minimumFractionDigits: 2, maximiumFractionDigits: 2, style: 'currency', currency: 'USD'});
 }
 
-function getMissingValues() {
+function getMissingValues({years, salary, match, rate}) {
     return new Promise((resolve, reject) => {
         // Verify which is(are) missing and prompt user for missing value(s)
         let questions = []
-        const {years, salary, match, rate} = program;
         if (!salary) {
             questions.push({
                 type: 'input',
@@ -131,11 +132,14 @@ function getMissingValues() {
         }
         inquirer.prompt(questions).then(answers => {
             // console.log({answers})
-            if (answers.salary) program.salary = +answers.salary
-            if (answers.years) program.years = +answers.years
-            if (answers.match) program.match = +answers.match
-            if (answers.rate) program.rate = +answers.rate
-            resolve(true)
+            const returnObj = {
+                years, salary, match, rate
+            }
+            if (answers.salary) returnObj.salary = +answers.salary
+            if (answers.years) returnObj.years = +answers.years
+            if (answers.match) returnObj.match = +answers.match
+            if (answers.rate) returnObj.rate = +answers.rate
+            resolve(returnObj)
         }).catch(err => {
             reject(err)
         })
