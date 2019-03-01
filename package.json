@@ -1,6 +1,6 @@
 {
   "name": "lost-benefits-calculator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI utility to calculate potential lost retirement benefits due to cessation of matching contributions",
   "main": "calc-benefits.js",
   "bin": {

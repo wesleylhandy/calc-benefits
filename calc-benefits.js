@@ -10,7 +10,7 @@ const total = chalk.bold.underline.redBright
 
 //initialize parsing of command line arguments
 program
-    .version('0.0.1', '-v, --version')
+    .version('1.0.3', '-v, --version')
     .usage('[options]')
     .option('-s, --salary <salary>', `annual salary - digits only (ie. 45000)`, parseInt)
     .option('-y, --years <years>', `Years Left Until Retirement - whole years only (ie. 25)`, parseInt)
